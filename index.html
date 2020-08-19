@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Colour Switch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+  </head>
+  <body>
+    <canvas id="frontPage" width="345" height="300"></canvas>
+
+
+    <script type="text/javascript">
+    var front = document.getElementById("frontPage");
+var ct = front.getContext("2d");
+ct.font = "30px Castellar";
+ct.fillStyle = "white";
+ct.textAlign = "center";
+ct.fillText("C", 110, front.height/2);
+ct.fillText("L", 170,front.height/2);
+ct.fillText("R",230,front.height/2);
+ct.fillText("SWITCH",170,front.height/2 + 30);
+
+var angle = 0;
+var plzzMusic = new Audio("ThemeMusic.mp3");
+plzzMusic.play();
+window.requestAnimationFrame(rotate);
+window.requestAnimationFrame(rotate2);
+
+
+
+  //setInterval(rotate,300);//
+function rotate(){
+  angle = angle + 2;
+
+  var ct = document.querySelector("canvas").getContext("2d");
+  var no = 140 - 10-5;
+  var no1 = (front.height/2 -11)-10-5;
+  var no3 =  10 + (2*10);
+  var no4 =  10 + (2*10);
+
+  ct.clearRect(no,no1,no3,no4);
+  ct.save();
+  ct.beginPath();
+  ct.strokeStyle = "yellow";
+  ct.translate(140,front.height/2 -11);
+  ct.rotate(angle*Math.PI/180);
+  ct.arc(0,0,11,0,Math.PI/2);
+
+  ct.lineWidth = 5;
+  ct.stroke();
+ct.beginPath();
+  ct.strokeStyle = "blue";
+
+  ct.arc(0,0,11,Math.PI/2,Math.PI,false);
+   ct.lineWidth = 5;
+   ct.stroke();
+ct.beginPath();
+ct.strokeStyle = "red";
+ct.arc(0,0,11,Math.PI,Math.PI*3/2,false);
+ct.lineWidth = 5;
+ct.stroke();
+ct.beginPath();
+ct.strokeStyle = "purple";
+ct.arc(0,0,11,Math.PI*3/2,2*Math.PI,false);
+ct.lineWidth = 5;
+ct.stroke();
+ct.restore();
+window.requestAnimationFrame(rotate);
+}
+
+function rotate2(){
+  angle = angle + 2;
+  var ct = document.querySelector("canvas").getContext("2d");
+  var no = 200 - 10-5;
+  var no1 = (front.height/2 - 11)-10-5;
+  var no3 =  10 + (2*10);
+  var no4 =  10 + (2*10);
+
+  ct.clearRect(no,no1,no3,no4);
+  ct.save();
+  ct.beginPath();
+  ct.strokeStyle = "yellow";
+  ct.translate(200,front.height/2 -11);
+  ct.rotate(angle*Math.PI/180);
+  ct.arc(0,0,11,0,Math.PI/2);
+
+  ct.lineWidth = 5;
+  ct.stroke();
+ct.beginPath();
+  ct.strokeStyle = "blue";
+
+  ct.arc(0,0,11,Math.PI/2,Math.PI,false);
+   ct.lineWidth = 5;
+   ct.stroke();
+ct.beginPath();
+ct.strokeStyle = "red";
+ct.arc(0,0,11,Math.PI,Math.PI*3/2,false);
+ct.lineWidth = 5;
+ct.stroke();
+ct.beginPath();
+ct.strokeStyle = "purple";
+ct.arc(0,0,11,Math.PI*3/2,2*Math.PI,false);
+ct.lineWidth = 5;
+ct.stroke();
+ct.restore();
+window.requestAnimationFrame(rotate2);
+}
+setTimeout(function(){
+  window.location.replace("play.html");},3000);
+
+    </script>
+
+
+  </body>
+</html>
